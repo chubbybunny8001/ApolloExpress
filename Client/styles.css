@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 50vh;
+  width: 100vw;
+}
+
+button {
+  width: 60vw;
+  padding: 20px;
+  border-radius: 5px;
+  color: darkcyan;
+  background-color: dimgray;
+  transition: ease-in 0.4s;
+}
+
+button:hover {
+  background-color: gainsboro;
+  color: blue;
+}

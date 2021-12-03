@@ -1,0 +1,2 @@
+Noting really to do except to grab the values from a form to roll the dice.
+Add a dropdown where they can select a number 1-4 to grab a certain users posts and name.

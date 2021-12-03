@@ -1,0 +1,14 @@
+We have 3 different Schemas (Like Routes).
+
+We should work on connecting to a DB. Mongo or PostgreSQL
+
+
+HERE IS THE QUERY FOR POSTGRES TO GRAB ALL OF A USERS POSTS...
+Select 
+users.first_name, users.last_name,
+user_posts.post_title, user_posts.post_body
+FROM users, user_posts 
+WHERE users.user_id = 1 
+AND users.user_id = user_posts.user_id;
+
+create a function for a user to beable to grab a users posts by their user_id.
