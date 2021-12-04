@@ -1,4 +1,15 @@
 const { userData } = require("../mockData");
+const knex = require("knex")({
+  client: process.env.CLIENT,
+  connection: {
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DB,
+    port: process.env.DBPORT,
+  },
+  useNullAsDefault: true,
+});
 //Inside these functions is where you would put
 //your SQL or Postgres query EX: SELECT * FROM USER
 const resolvers = {
@@ -21,27 +32,30 @@ const resolvers = {
     },
 
     getOneUser(parent, args) {
-      var id = args.id;
-      return userData.filter((user) => {
-        return user.id == id;
-      })[0];
+      var id = args.user_id;
+      return knex("users").select("*").where("user_id", id);
     },
 
     getUsersByLastName(parent, args) {
       var last_name = args.last_name;
-      return userData.filter((users) => {
-        return users.last_name === last_name;
-      });
+      return knex("users")
+        .select("*")
+        .where("last_name", last_name)
+        .orderBy("user_id");
     },
 
     getAllUsers() {
-      return userData;
+      return knex("users").select("*").orderBy("user_id");
+    },
+
+    getAllSharks() {
+      return knex("sharks").select("*").orderBy("shark_id");
     },
   },
   Mutation: {
-    createUser(parent, args) {
+    async createUser(parent, args) {
       const newUser = args;
-      userData.push(newUser);
+      knex("users").insert();
       console.log(newUser);
       return newUser;
     },
