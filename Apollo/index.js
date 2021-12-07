@@ -4,6 +4,8 @@ const { ApolloServer } = require("apollo-server-express");
 //GraphQL
 const { typeDefs } = require("./Schema/TypeDefs");
 const { resolvers } = require("./Schema/Resolvers");
+//Auth & JWT
+
 //Express
 const express = require("express");
 const app = express();
