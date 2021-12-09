@@ -13,15 +13,24 @@
 }
 
 button {
-  width: 60vw;
+  border-color: purple;
+  width: 20vw;
   padding: 20px;
-  border-radius: 5px;
-  color: darkcyan;
-  background-color: dimgray;
-  transition: ease-in 0.4s;
+  color: purple;
+  background-color: white;
+  transition: background 0.2s ease-in, transform 0.2s 0.1s ease-in-out,
+    border-radius 0.2s 0.2s ease-in;
 }
 
 button:hover {
-  background-color: gainsboro;
-  color: blue;
+  border-radius: 10px;
+  border-color: grey;
+  transform: scale(1.05);
+  background-color: purple;
+  color: white;
+}
+
+.boxCont {
+  width: 100vw;
+  height: 40vh;
 }
